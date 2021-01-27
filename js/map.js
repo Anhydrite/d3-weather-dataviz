@@ -51,7 +51,7 @@ function draw() {
 				}
 			}
 		});
-
+	
 	g.selectAll(".pin")
 		.data(dataWeather[day].station)
 		.enter().append("text")
@@ -68,6 +68,15 @@ function draw() {
 			]) + ")";
 		})
 		.text(function (d) {
-			return Math.round(d.t / 100);
+			for(let hours of d.hours){
+				if(hours.h == hour){
+					return Math.round(hours.t/100)
+				}
+			}
+
+			if(hour == "none"){
+				return Math.round(d.t / 100);
+			}	
+
 		});;
 }

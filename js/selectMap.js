@@ -2,6 +2,7 @@
 function initSelect() {
     let selectList = document.createElement("select");
     let selectListHour = document.createElement("select")
+    selectListHour.classList.add("selectHour")
     selectList.setAttribute("id", "mySelect")
     selectList.addEventListener("change", (element) => {
         day = element.target.value;
@@ -9,6 +10,11 @@ function initSelect() {
         draw();
     })
 
+    selectListHour.addEventListener("change", (element) => {
+        hour = element.target.value;
+        erase();
+        draw();
+    })
     let temp = document.getElementsByClassName('navigation')[0].appendChild(
         document.createElement("a"));
     temp = temp.appendChild(document.createElement("li"))

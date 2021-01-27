@@ -7,14 +7,14 @@ const widthMap = 960,
 
 let g;
 let tip;
-let day = 27;
+let day = 1;
 let dataWeather;
 let xpos = ypos = 0;
 let Tooltip;
 let svg;
 let selectedStation = "--";
-
-
+let data = [];
+let hour = "none"
 d3.json('../data/departments.json', function (error, geoJson) {
 	init(geoJson)
 	d3.json('../data/meteo.json', (stations) => {
